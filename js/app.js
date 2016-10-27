@@ -4,7 +4,7 @@
 //we want to select element from various buttons using getElementById();
 var taskInput = document.getElementById("new-task"); //new-task
 //as first button does not have id, have to use this method, similar to array, accesses first index of button
-var addButton = document.getElementByTagName("button")[0]; //first button for adding task
+var addButton = document.getElementsByTagName("button")[0]; //first button for adding task
 var incompleteTaskHolder = document.getElementById("incomplete-tasks"); //incomplete-tasks
 var completedTaskHolder = document.getElementById("completed-tasks"); //completed-tasks
 

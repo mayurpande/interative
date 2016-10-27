@@ -1,6 +1,13 @@
 //Problem: user interaction doesn't provide desired results
 //Solution: add interactivity so the user can manage daily tasks
 
+//we want to select input from using getElementById();
+
+var taskInput = document.getElementById("new-task"); //new-task
+var addButton; //first button for adding task
+var incompleteTaskHolder = document.getElementById("incomplete-tasks"); //incomplete-tasks
+var completedTaskHolder = document.getElementById("completed-tasks"); //completed-tasks
+
 //Add a new task
 var addTask = function(){
  //When the button is pressed 

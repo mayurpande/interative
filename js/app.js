@@ -2,6 +2,7 @@
 //Solution: add interactivity so the user can manage daily tasks
 
 //Add a new task
+var addTask = function(){
  //When the button is pressed 
  //Create a new list item with the text from the #new-task:
  	//create input checkbox
@@ -17,8 +18,10 @@
   	)*/
   	/*then after modification this li item needs to be appended document and these 
   	children need appending to the li item */
+}
 
 //Edit an exisitng task
+var editTask = function(){
 	//When edit button is pressed
 	 //if the class of the edit button's parent (li item) has the class of .editMode
 	 	//we want to switch from .editMode (switch back)
@@ -28,17 +31,26 @@
 	  //input value becomes the label's text
 
  //toggle .editMode on the parent
+}
 
 //Delete an existing task
+var deleteTask =  function(){
+
   //When the delete button is pressed
   	//Remove the parent list item from the ul (remove parent from its parent)
+}
 
 
 //Mark a task a complete
+var taskCompleted = function(){
+
 	//when the checkbox is checked
 	 //Append the task list item <li> to the #completed-tasks
-
+}
 
 //Mark a task as Incomplete
+var taskIncomplete = function(){
+
 	//when the checkbox is unchecked
 		//Append the task list item to the #incomplete-tasks
+}

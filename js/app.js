@@ -1,0 +1,44 @@
+//Problem: user interaction doesn't provide desired results
+//Solution: add interactivity so the user can manage daily tasks
+
+//Add a new task
+ //When the button is pressed 
+ //Create a new list item with the text from the #new-task:
+ 	//create input checkbox
+ 	//create a label
+ 	//create an input for the text when we edit a task
+ 	//create a button with a class of edit
+ 	//create a button with a class of delete
+  	//each of these elements, will need to be modified, and appended
+  	/*(meaning of modified - if I create an input I need to make it a checkbox,
+  		a label needs text inside of it, the input for edit needs to be of text type
+  		  the button needs the word edit in it and the class edit in it
+  		  the delete button needs the word delete in it and the class delete in it
+  	)*/
+  	/*then after modification this li item needs to be appended document and these 
+  	children need appending to the li item */
+
+//Edit an exisitng task
+	//When edit button is pressed
+	 //if the class of the edit button's parent (li item) has the class of .editMode
+	 	//we want to switch from .editMode (switch back)
+	 	//we also want to make the label text become input's value (text value from input)
+	 //else (if we are switching into editMode)
+	  //switch to editMode
+	  //input value becomes the label's text
+
+ //toggle .editMode on the parent
+
+//Delete an existing task
+  //When the delete button is pressed
+  	//Remove the parent list item from the ul (remove parent from its parent)
+
+
+//Mark a task a complete
+	//when the checkbox is checked
+	 //Append the task list item <li> to the #completed-tasks
+
+
+//Mark a task as Incomplete
+	//when the checkbox is unchecked
+		//Append the task list item to the #incomplete-tasks

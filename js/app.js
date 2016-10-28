@@ -83,10 +83,12 @@ var deleteTask =  function(){
 //Mark a task a complete
 var taskCompleted = function(){
 	console.log("completed...");
-
-
-	//when the checkbox is checked
-	 //Append the task list item <li> to the #completed-tasks
+	//this element we are currently on is this checkbox, its parent will be the li item
+	//it will have a parent node because it is a node in the DOM
+	var listItem = this.parentNode;
+	//Append the task list item <li> to the #completed-tasks
+	completedTaskHolder.appendChild(listItem);
+	 
 }
 
 //Mark a task as Incomplete

@@ -84,15 +84,23 @@ var addTask = function (){
 //Edit an exisitng task
 var editTask = function(){
 	console.log("edit-task..");
+	var listItem = this.parentNode;
 
-	//When edit button is pressed
+	var editInput = listItem.querySelector("input[type=text]");
+	var label = listItem.querySelector("label");
+
+	var containsClass = listItem.classList.contains("editMode");
+
 	 //if the class of the edit button's parent (li item) has the class of .editMode
+	 if(containsClass){
 	 	//we want to switch from .editMode (switch back)
 	 	//we also want to make the label text become input's value (text value from input)
-	 //else (if we are switching into editMode)
-	  //switch to editMode
-	  //input value becomes the label's text
-
+		label.innerText = editInput.value;
+	 }else{ //else (if we are switching into editMode)
+	 	//switch to editMode
+	  	//input value becomes the label's text
+	  	editInput.value = label.innerText;
+     }
  //toggle .editMode on the parent
 }
 

@@ -10,21 +10,33 @@ var completedTaskHolder = document.getElementById("completed-tasks"); //complete
 
 //new task list item
 var createNewTaskElement = function(taskString){
+	//create list item
+	var listItem = document.createElement("li");
+		
 	//create input checkbox
- 	//create a label
- 	//create an input for the text when we edit a task
- 	//create a button with a class of edit
- 	//create a button with a class of delete
-  	//each of these elements, will need to be modified, and appended
-  	/*(meaning of modified - if I create an input I need to make it a checkbox,
-  		a label needs text inside of it, the input for edit needs to be of text type
-  		  the button needs the word edit in it and the class edit in it
-  		  the delete button needs the word delete in it and the class delete in it
-  	)*/
-  	/*then after modification this li item needs to be appended document and these 
-  	children need appending to the li item */
+	var checkBox = document.createElement("checkbox");
+	//create a label
+	var label = document.createElement("label");
+	//create an input for the text when we edit a task
+	var editInput = document.createElement("element");
+	//create a button with a class of edit
+	var editButton = document.createElement("button");
+	//create a button with a class of delete
+	var deleteButton = document.createElement("button");
+	//each of these elements, will need to be modified, and appended
+	/*(meaning of modified - if I create an input I need to make it a checkbox,
+		a label needs text inside of it, the input for edit needs to be of text type
+		  the button needs the word edit in it and the class edit in it
+		  the delete button needs the word delete in it and the class delete in it
+	)*/
+	/*then after modification this li item needs to be appended document and these 
+	children need appending to the li item */
 
+	//each element needs modifying
 
+	//each element needs appending
+    
+	return listItem;
 }
 
 //Add a new task
@@ -32,7 +44,9 @@ var addTask = function (){
 	console.log("Add-task..");
  
  //Create a new list item with the text from the #new-task: call function
- createNewTaskElement("some new task");
+ var listItem = createNewTaskElement("some new task");
+
+ //append listItem to incompleteTaskHolder
  	
 }
 

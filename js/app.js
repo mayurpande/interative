@@ -80,9 +80,24 @@ var editTask = function(){
 //Delete an existing task
 var deleteTask =  function(){
 	console.log("delete-task..");
- 
-  //When the delete button is pressed
+	
+  	//get the parentNode
+  	var listItem = this.parentNode;
+  	//instead of the checkbox being the child this time, this is the button being the child
+  	//and it just happens to be that the li item it still the parent item of the 
+  	//both the checkbox and the delete button, the li item is the parent node
+  	//and then we want to get the li item parent node which is the ul
+  	//this is basically the grandparent of the button so we want to remove the child above(listItem)
+  	//from this element below (ul)
+  	var ul = listItem.parentNode;
+
   	//Remove the parent list item from the ul (remove parent from its parent)
+  	ul.removeChild(listItem);
+
+
+
+
+
 }
 
 

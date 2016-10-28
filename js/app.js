@@ -68,6 +68,9 @@ var addTask = function (){
  //Create a new list item with the text from the #new-task: call function
  //we need to get the value of the input from taskInput var 
  //we can use the dot notation of an attribute to get the particular thing
+ //REFACTORING - what would be handy if when we append the child and bind events
+ //we change the taskInput.value to be see below bindTaskEvents call 
+ //this is the getter we get the property
  var listItem = createNewTaskElement(taskInput.value);
 
  //append listItem to incompleteTaskHolder
@@ -76,6 +79,10 @@ var addTask = function (){
  //and we want the taskCompleted to be bound to it. 
  //So when we append it to the incomplete tasks when we check that checkbox it will be completed
  bindTaskEvents(listItem,taskCompleted);
+
+ //change taskInput.value to an empty string
+ //here we set the property by assigning it the value of an empty string
+ taskInput.value = "";
 
 
  	
@@ -179,8 +186,19 @@ var bindTaskEvents = function(taskListItem,checkBoxEventHandler){
 	checkbox.onchange = checkBoxEventHandler;
 }
 
+var ajaxRequest = function(){
+	console.log("ajaxRequest");
+}
+
+//addButton.onclick = ajaxRequest;
+
+
 //set the click handler to the addTask method
-addButton.onclick = addTask;
+//addButton.onclick = addTask;
+//we are adding two eventlisteners that will get triggered when that click event happens on that button
+
+addButton.addEventListener("click",addTask);
+addButton.addEventListener("click",ajaxRequest);
 
 //cycle over incompleteTasksHolder ul list items
 for(var i=0; i<incompleteTaskHolder.children.length;i++){

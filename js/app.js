@@ -53,6 +53,10 @@ var addTask = function (){
 
  //append listItem to incompleteTaskHolder
  incompleteTaskHolder.append(listItem);
+ //for future reference in the addtask  we want to bind the events to the list item
+ bindTaskEvents(listItem,taskCompleted);
+
+
  	
 }
 
@@ -88,6 +92,11 @@ var taskCompleted = function(){
 	var listItem = this.parentNode;
 	//Append the task list item <li> to the #completed-tasks
 	completedTaskHolder.appendChild(listItem);
+	//remember we have this bind events method below
+	//so we could bind events, to the listItem, so that when the task is made complete
+	//we are saying that we want to put it back int the completeTaskHolder
+	//so that means that when we check on a check box now, we want the task to be completed
+	bindTaskEvents(listItem,taskIncomplete);
 	 
 }
 
@@ -99,6 +108,13 @@ var taskIncomplete = function(){
 	var listItem = this.parentNode;
 	//Append the task list item to the #incomplete-tasks
 	incompleteTaskHolder.appendChild(listItem);
+	//remember we have this bind events method below
+	//so we could bind events, to the listItem, so that when the task is made incomplete
+	//we are saying we want to put it back into the incompleteTaskHolder
+	//so that means that when we check on a check box now, we want the task to be completed
+	bindTaskEvents(listItem,taskCompleted);
+
+
 }
 
 //binds task events, takes two parameters, taskListItem which is the children of the uls

@@ -44,9 +44,9 @@ var createNewTaskElement = function(taskString){
 	//we can also modify their classes and text using some special methods
 	//innerHTML allows special characters
 	//innerTEXT encodes special characters
-	editButton.innerHTML = "Edit"; 
+	editButton.innerText = "Edit"; 
 	editButton.className = "edit";
-	deleteButton.innerHTML = "Delete";
+	deleteButton.innerText = "Delete";
 	deleteButton.className = "delete";
 	label.innerHTML = taskString;
  

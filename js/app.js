@@ -8,12 +8,9 @@ var addButton = document.getElementsByTagName("button")[0]; //first button for a
 var incompleteTaskHolder = document.getElementById("incomplete-tasks"); //incomplete-tasks
 var completedTaskHolder = document.getElementById("completed-tasks"); //completed-tasks
 
-//Add a new task
-var addTask = function (){
-	console.log("Add-task..");
- //When the button is pressed 
- //Create a new list item with the text from the #new-task:
- 	//create input checkbox
+//new task list item
+var createNewTaskElement = function(taskString){
+	//create input checkbox
  	//create a label
  	//create an input for the text when we edit a task
  	//create a button with a class of edit
@@ -26,6 +23,17 @@ var addTask = function (){
   	)*/
   	/*then after modification this li item needs to be appended document and these 
   	children need appending to the li item */
+
+
+}
+
+//Add a new task
+var addTask = function (){
+	console.log("Add-task..");
+ 
+ //Create a new list item with the text from the #new-task: call function
+ createNewTaskElement("some new task");
+ 	
 }
 
 //Edit an exisitng task

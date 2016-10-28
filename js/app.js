@@ -83,7 +83,7 @@ var deleteTask =  function(){
 //Mark a task a complete
 var taskCompleted = function(){
 	console.log("completed...");
-	//this element we are currently on is this checkbox, its parent will be the li item
+	//this.. element we are currently on is this checkbox, its parent will be the li item
 	//it will have a parent node because it is a node in the DOM
 	var listItem = this.parentNode;
 	//Append the task list item <li> to the #completed-tasks
@@ -94,10 +94,11 @@ var taskCompleted = function(){
 //Mark a task as Incomplete
 var taskIncomplete = function(){
 	console.log("incomplete...");
-
-
-	//when the checkbox is unchecked
-		//Append the task list item to the #incomplete-tasks
+	//this.. element we are currently on is this checkbox, it parent will be the li item
+	//it will have a parent node because it is a node in the DOM
+	var listItem = this.parentNode;
+	//Append the task list item to the #incomplete-tasks
+	incompleteTaskHolder.appendChild(listItem);
 }
 
 //binds task events, takes two parameters, taskListItem which is the children of the uls

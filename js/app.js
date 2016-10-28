@@ -52,8 +52,10 @@ var addTask = function (){
  var listItem = createNewTaskElement("some new task");
 
  //append listItem to incompleteTaskHolder
- incompleteTaskHolder.append(listItem);
- //for future reference in the addtask  we want to bind the events to the list item
+ incompleteTaskHolder.appendChild(listItem);
+ //for future reference in the addtask  we want to bind the events to the list item as well
+ //and we want the taskCompleted to be bound to it. 
+ //So when we append it to the incomplete tasks when we check that checkbox it will be completed
  bindTaskEvents(listItem,taskCompleted);
 
 
@@ -95,7 +97,7 @@ var taskCompleted = function(){
 	//remember we have this bind events method below
 	//so we could bind events, to the listItem, so that when the task is made complete
 	//we are saying that we want to put it back int the completeTaskHolder
-	//so that means that when we check on a check box now, we want the task to be completed
+	//so that means that when we check on a check box now, we want the task to be completed   
 	bindTaskEvents(listItem,taskIncomplete);
 	 
 }

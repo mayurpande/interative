@@ -14,11 +14,11 @@ var createNewTaskElement = function(taskString){
 	var listItem = document.createElement("li");
 		
 	//create input checkbox
-	var checkBox = document.createElement("checkbox");
+	var checkBox = document.createElement("input");
 	//create a label
 	var label = document.createElement("label");
 	//create an input for the text when we edit a task
-	var editInput = document.createElement("element");
+	var editInput = document.createElement("input");
 	//create a button with a class of edit
 	var editButton = document.createElement("button");
 	//create a button with a class of delete
@@ -33,6 +33,23 @@ var createNewTaskElement = function(taskString){
 	children need appending to the li item */
 
 	//each element needs modifying
+	//we can actually modify and update elements properties their attributes and their content
+	//to do that we can use properties that been exposed on each element, 
+	//for example - if I have got a link basically an anchor - I can modify it using dot notation
+	//to modify the href attribute so in the case of our check box this is an input and an input
+	//has a type property, so we can use dot notation, below will verify that this is a checkbox created
+	checkBox.type = "checkbox";
+	editInput.type = "text";
+
+	//we can also modify their classes and text using some special methods
+	//innerHTML allows special characters
+	//innerTEXT encodes special characters
+	editButton.innerHTML = "Edit"; 
+	editButton.className = "edit";
+	deleteButton.innerHTML = "Delete";
+	deleteButton.className = "delete";
+	label.innerHTML = taskString;
+ 
 
 	//each element needs appending
     listItem.appendChild(checkBox);

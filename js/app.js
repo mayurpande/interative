@@ -44,9 +44,9 @@ var createNewTaskElement = function(taskString){
 	//we can also modify their classes and text using some special methods
 	//innerHTML allows special characters
 	//innerTEXT encodes special characters
-	editButton.innerHTML = "Edit"; 
+	editButton.innerText = "Edit"; 
 	editButton.className = "edit";
-	deleteButton.innerHTML = "Delete";
+	deleteButton.innerText = "Delete";
 	deleteButton.className = "delete";
 	label.innerHTML = taskString;
  
@@ -84,16 +84,25 @@ var addTask = function (){
 //Edit an exisitng task
 var editTask = function(){
 	console.log("edit-task..");
+	var listItem = this.parentNode;
 
-	//When edit button is pressed
+	var editInput = listItem.querySelector("input[type=text]");
+	var label = listItem.querySelector("label");
+
+	var containsClass = listItem.classList.contains("editMode");
+
 	 //if the class of the edit button's parent (li item) has the class of .editMode
+	 if(containsClass){
 	 	//we want to switch from .editMode (switch back)
 	 	//we also want to make the label text become input's value (text value from input)
-	 //else (if we are switching into editMode)
-	  //switch to editMode
-	  //input value becomes the label's text
-
- //toggle .editMode on the parent
+		label.innerText = editInput.value;
+	 }else{ //else (if we are switching into editMode)
+	 	//switch to editMode
+	  	//input value becomes the label's text
+	  	editInput.value = label.innerText;
+     }
+     //toggle .editMode on the parent - list item
+     listItem.classList.toggle("editMode");
 }
 
 //Delete an existing task

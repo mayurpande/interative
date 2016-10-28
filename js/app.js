@@ -35,7 +35,12 @@ var createNewTaskElement = function(taskString){
 	//each element needs modifying
 
 	//each element needs appending
-    
+    listItem.appendChild(checkBox);
+    listItem.appendChild(label);
+	listItem.appendChild(editInput);
+    listItem.appendChild(editButton);
+    listItem.appendChild(deleteButton);
+      
 	return listItem;
 }
 
@@ -47,6 +52,13 @@ var addTask = function (){
  var listItem = createNewTaskElement("some new task");
 
  //append listItem to incompleteTaskHolder
+ incompleteTaskHolder.appendChild(listItem);
+ //for future reference in the addtask  we want to bind the events to the list item as well
+ //and we want the taskCompleted to be bound to it. 
+ //So when we append it to the incomplete tasks when we check that checkbox it will be completed
+ bindTaskEvents(listItem,taskCompleted);
+
+
  	
 }
 
@@ -68,28 +80,58 @@ var editTask = function(){
 //Delete an existing task
 var deleteTask =  function(){
 	console.log("delete-task..");
- 
-  //When the delete button is pressed
+	
+  	//get the parentNode
+  	var listItem = this.parentNode;
+  	//instead of the checkbox being the child this time, this is the button being the child
+  	//and it just happens to be that the li item it still the parent item of the 
+  	//both the checkbox and the delete button, the li item is the parent node
+  	//and then we want to get the li item parent node which is the ul
+  	//this is basically the grandparent of the button so we want to remove the child above(listItem)
+  	//from this element below (ul)
+  	var ul = listItem.parentNode;
+
   	//Remove the parent list item from the ul (remove parent from its parent)
+  	ul.removeChild(listItem);
+
+
+
+
+
 }
 
 
 //Mark a task a complete
 var taskCompleted = function(){
 	console.log("completed...");
-
-
-	//when the checkbox is checked
-	 //Append the task list item <li> to the #completed-tasks
+	//this.. element we are currently on is this checkbox, its parent will be the li item
+	//it will have a parent node because it is a node in the DOM
+	var listItem = this.parentNode;
+	//Append the task list item <li> to the #completed-tasks
+	completedTaskHolder.appendChild(listItem);
+	//remember we have this bind events method below
+	//so we could bind events, to the listItem, so that when the task is made complete
+	//we are saying that we want to put it back int the completeTaskHolder
+	//so that means that when we check on a check box now, we want the task to be completed   
+	bindTaskEvents(listItem,taskIncomplete);
+	 
 }
 
 //Mark a task as Incomplete
 var taskIncomplete = function(){
 	console.log("incomplete...");
+	//this.. element we are currently on is this checkbox, it parent will be the li item
+	//it will have a parent node because it is a node in the DOM
+	var listItem = this.parentNode;
+	//Append the task list item to the #incomplete-tasks
+	incompleteTaskHolder.appendChild(listItem);
+	//remember we have this bind events method below
+	//so we could bind events, to the listItem, so that when the task is made incomplete
+	//we are saying we want to put it back into the incompleteTaskHolder
+	//so that means that when we check on a check box now, we want the task to be completed
+	bindTaskEvents(listItem,taskCompleted);
 
 
-	//when the checkbox is unchecked
-		//Append the task list item to the #incomplete-tasks
 }
 
 //binds task events, takes two parameters, taskListItem which is the children of the uls

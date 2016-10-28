@@ -101,7 +101,8 @@ var editTask = function(){
 	  	//input value becomes the label's text
 	  	editInput.value = label.innerText;
      }
- //toggle .editMode on the parent
+     //toggle .editMode on the parent - list item
+     listItem.classList.toggle("editMode");
 }
 
 //Delete an existing task
